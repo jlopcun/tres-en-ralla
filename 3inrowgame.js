@@ -5,7 +5,11 @@ const Row3 = document.getElementById('thirdRow');
 const line1 = Row1.children;
 const line2 = Row2.children;
 const line3 = Row3.children;
+const countX = document.getElementById('countX');
+const count0 = document.getElementById('count0');
 
+let xcounter = 0;
+let ycounter = 0;
 const game = {
     row1 : [...line1],
     row2 : [...line2],
@@ -35,9 +39,14 @@ const hasWin = (all) => {
     for(let arr of all){
         if(arr[0].textContent===arr[1].textContent && arr[1].textContent===arr[2].textContent && arr[0].textContent!=='*'){
             alert(`el ganador es : ${arr[0].textContent}`);
+            (arr[0].textContent==='X')?xcounter++:ycounter++;
+            countX.textContent = countX.textContent = xcounter;
+            count0.textContent = count0.textContent = ycounter;
+            console.log(xcounter,ycounter)
             reiniciar(all)
         }
     }
+  
 }
 gameBoard.addEventListener('click',(e)=>{
    if(e.target.className.startsWith('game-item') && e.target.textContent==='*'){
@@ -47,10 +56,11 @@ gameBoard.addEventListener('click',(e)=>{
     //    if(allRowValidation) alert('X wins')
     let all  = Object.values(game);
     //    ChildrenOfRowElement.textContent = 'X';
-    (RegulSign%2===0)?ChildrenOfRowElement.textContent = 'X':ChildrenOfRowElement.textContent = '0';
+    (RegulSign%2===0)?ChildrenOfRowElement.textContent = 'X':ChildrenOfRowElement.textContent = 'O';
     RegulSign++;
     // Validar quien ha ganado la partida
     hasWin(all)
+    
     // validacion de empate
     if(RegulSign===9){
         validarEmpate();

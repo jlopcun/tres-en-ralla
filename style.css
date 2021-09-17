@@ -7,14 +7,15 @@ body{
     margin:0;
     display:grid;
     place-items:center;
-    
+    background-color: #333;
+    color:#fff;
 }
 .game-board{
     width:60%;
     height:60%;
     display:flex;
     justify-content: center;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     align-items: center;
 }
 
@@ -30,4 +31,7 @@ body{
     font-size:25px;
     cursor:pointer;
     width:25px;
+}
+.game-row span::selection{
+    display:none;
 }
