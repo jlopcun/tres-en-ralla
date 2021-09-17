@@ -1,0 +1,33 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+body{
+    width:100vw;
+    min-height:100vh;
+    margin:0;
+    display:grid;
+    place-items:center;
+    
+}
+.game-board{
+    width:60%;
+    height:60%;
+    display:flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.game-row{
+    width:100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.game-row span{
+    display:inline-block;
+    padding:40px;
+    font-size:25px;
+    cursor:pointer;
+    width:25px;
+}
