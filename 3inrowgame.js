@@ -78,4 +78,4 @@ gameBoard.addEventListener('click',(e)=>{
    }
 })
 
-
+document.documentElement.style.setProperty('--blockHeight',`${document.body.scrollHeight}px`);

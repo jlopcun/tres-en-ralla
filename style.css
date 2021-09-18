@@ -1,3 +1,9 @@
+
+:root{
+    --blockHeight :0;
+}
+
+
 *,*::after,*::before{
     box-sizing: border-box;
 }
@@ -5,13 +11,15 @@ body{
     min-width:100vw;
     min-height:100vh;
     margin:0;
-    display:grid;
-    place-items:center;
     background-color: #333;
     color:#fff;
-    /* overflow-x: hidden; */
+    display: flex;
+    flex-flow: column wrap;
 }
-
+.main{
+    display:grid;
+    place-items:center;
+}
 .game-board{
     width:60%;
     height:60%;
@@ -105,8 +113,8 @@ body{
     position:absolute;
     top:0;
     width:100vw;
-    min-height:100%;
-
+    height:var(--blockHeight);
+    min-height:100vh;
     background-color: rgba(0 0 0 / .2);
 }
 .removeActive{
@@ -116,4 +124,34 @@ body{
     background-color: #f0a;
     padding:5px;
     cursor: pointer;
+}
+.counters{
+    margin-bottom:5rem;
+}
+.footer{
+    width:100vw;
+    height:5rem;
+    background-color: #f0a;
+    margin-top:auto;
+    display: flex;
+    justify-content:center;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.mail-msg{
+    color:#fff;
+    text-decoration:none;
+    justify-self: flex-end;
+}
+.github{
+    display: inline-block;
+    width:30px;
+}
+.github-img{
+    width:100%;
+    margin:0;
+}
+.enc-note{
+    text-decoration:underline;
+    color:#30f;
 }
