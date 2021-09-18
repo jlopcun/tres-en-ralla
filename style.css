@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body{
-    width:100vw;
+    min-width:100vw;
     min-height:100vh;
     margin:0;
     display:grid;
@@ -11,6 +11,7 @@ body{
     color:#fff;
     /* overflow-x: hidden; */
 }
+
 .game-board{
     width:60%;
     height:60%;
@@ -21,7 +22,7 @@ body{
 }
 
 .game-row{
-    width:max(100%,360px);
+    width:360px;
     display: flex;
     justify-content:center;
     align-items: center;
@@ -31,9 +32,10 @@ body{
 .game-row span{
     display:inline-block;
     padding:40px;
-    font-size:25px;
+    font-size:30px;
     cursor:pointer;
     width:25px;
+    font-family: 'Righteous', cursive;
 }
 .game-row span::selection{
     display:none;
@@ -41,7 +43,7 @@ body{
 .first-row::after{
     content:'';
     display:inline-block;
-    width:max(30%,210px);
+    width:max(30%,230px);
     top:100%;
     height:3px;
     position:absolute;
@@ -50,7 +52,7 @@ body{
 .third-row::after{
     content:'';
     display:inline-block;
-    width:max(30%,210px);
+    width:max(30%,230px);
     bottom:100%;
     height:3px;
     position:absolute;
@@ -61,7 +63,7 @@ body{
     content:'';
     display:inline-block;
     width:max(30%,210px);
-    right:29%;
+    right:8%;
     height:3px;
     position:absolute;
     background-color: #fff;
@@ -73,7 +75,7 @@ body{
     content:'';
     display:inline-block;
     width:max(30%,210px);
-    left:31%;
+    left:14%;
     height:3px;
     position:absolute;
     background-color: #fff;
@@ -94,6 +96,7 @@ body{
     transform: translateY(-100%);
     transition:transform 1s;
     z-index:1;
+    font-family: 'Righteous', cursive;
 }
 .winner.active{
     transform: translateY(100%);
@@ -102,7 +105,8 @@ body{
     position:absolute;
     top:0;
     width:100vw;
-    height:100vh;
+    min-height:100%;
+
     background-color: rgba(0 0 0 / .2);
 }
 .removeActive{
