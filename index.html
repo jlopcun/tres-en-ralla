@@ -8,27 +8,35 @@
     <title>3 in row game</title>
 </head>
 <body>
+    <h1>TIC TAC TOE GAME by jlop</h1>
     <div class="counters" id="counters">
         <p>X ha ganado <span class="countX" id="countX">0</span> veces</p>
         <p>O ha ganado <span class="count0" id="count0">0</span> veces</p>
     </div>
     <div class="game-board" id="gameBoard">
         <div class="first-row game-row" id="firstRow">
-            <span class="game-item1 el1" id="gameItem1">*</span>
-            <span class="game-item1 el2" id="gameItem1">*</span>
-            <span class="game-item1 el3" id="gameItem1">*</span>
+            <span class="game-item1 el1" id="gameItem1"> </span>
+            <span class="game-item1 el2" id="gameItem1"> </span>
+            <span class="game-item1 el3" id="gameItem1"> </span>
         </div>
         <div class="second-row game-row" id="secondRow">
-            <span class="game-item2 el1" id="gameItem2">*</span>
-            <span class="game-item2 el2" id="gameItem2">*</span>
-            <span class="game-item2 el3" id="gameItem2">*</span>
+            <span class="game-item2 el1" id="gameItem2"> </span>
+            <span class="game-item2 el2" id="gameItem2"> </span>
+            <span class="game-item2 el3" id="gameItem2"> </span>
         </div>
         <div class="third-row game-row" id="thirdRow">
-            <span class="game-item3 el1" id="gameItem3">*</span>
-            <span class="game-item3 el2" id="gameItem3">*</span>
-            <span class="game-item3 el3" id="gameItem3">*</span>
+            <span class="game-item3 el1" id="gameItem3"> </span>
+            <span class="game-item3 el2" id="gameItem3"> </span>
+            <span class="game-item3 el3" id="gameItem3"> </span>
         </div>
     </div>
+
+
+    <div class="winner" id="winner">
+        <p class="removeActive" id="removeActive">X</p>
+        <h2 class="winner-anoucement" id="winner-anoucement"></h2>
+    </div>
+    <div class="block"></div>
     <script src="3inrowgame.js"></script>
 </body>
 </html>

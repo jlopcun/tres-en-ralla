@@ -7,7 +7,13 @@ const line2 = Row2.children;
 const line3 = Row3.children;
 const countX = document.getElementById('countX');
 const count0 = document.getElementById('count0');
-
+const winnerAnoucement = document.getElementById('winner-anoucement');
+const winner = document.getElementById('winner');
+const removeActive = document.getElementById('removeActive');
+removeActive.addEventListener('click',()=>{
+    winner.classList.remove('active');
+   
+})
 let xcounter = 0;
 let ycounter = 0;
 const game = {
@@ -22,34 +28,37 @@ const game = {
 }
 
 let RegulSign = 0;
-const validarEmpate=()=>{
+const validarEmpate=(all)=>{
     if(RegulSign===9){
-        alert('EMPATE:ninguno de los dos jugadores gana')
+        winnerAnoucement.textContent = 'EMPATE: ninguno de los jugadores gana!!';
+        winner.classList.add('active')
+        reiniciar(all)
     }
 }
 const reiniciar = (all) =>{
     RegulSign=0;
     for(let arr of all){
       arr.forEach(el=>{
-          el.textContent = '*';
+          el.textContent = ' ';
       })
     }
 }
 const hasWin = (all) => {
     for(let arr of all){
-        if(arr[0].textContent===arr[1].textContent && arr[1].textContent===arr[2].textContent && arr[0].textContent!=='*'){
-            alert(`el ganador es : ${arr[0].textContent}`);
+        if(arr[0].textContent===arr[1].textContent && arr[1].textContent===arr[2].textContent && arr[0].textContent!==' '){
             (arr[0].textContent==='X')?xcounter++:ycounter++;
+            winnerAnoucement.textContent = `el ganador es : ${arr[0].textContent}`;
+            winner.classList.add('active')
+            reiniciar(all);
             countX.textContent = countX.textContent = xcounter;
             count0.textContent = count0.textContent = ycounter;
-            console.log(xcounter,ycounter)
-            reiniciar(all)
+            
         }
     }
   
 }
 gameBoard.addEventListener('click',(e)=>{
-   if(e.target.className.startsWith('game-item') && e.target.textContent==='*'){
+   if(e.target.className.startsWith('game-item') && e.target.textContent===' '){
        let indexOfElement = e.target.className.slice(-1);
        let parentElement = e.target.parentElement;
        let ChildrenOfRowElement = parentElement.children[indexOfElement-1];
@@ -63,8 +72,10 @@ gameBoard.addEventListener('click',(e)=>{
     
     // validacion de empate
     if(RegulSign===9){
-        validarEmpate();
+        validarEmpate(all);
         reiniciar(all);
     }
    }
 })
+
+
